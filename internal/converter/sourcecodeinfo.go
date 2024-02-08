@@ -133,10 +133,10 @@ func (c *Converter) formatTitleAndDescription(name *string, sl *descriptor.Sourc
 
 	// Leading detached comments first:
 	for _, str := range sl.GetLeadingDetachedComments() {
-		if s := strings.TrimSpace(str); s != "" {
-			comments = append(comments, s)
-			title = s
-		}
+		// if s := strings.TrimSpace(str); s != "" {
+		comments = append(comments, str)
+		title = str
+		// }
 	}
 
 	// Leading comments next:
