@@ -138,17 +138,21 @@ func (c *Converter) formatTitleAndDescription(name *string, sl *descriptor.Sourc
 		title = str
 		// }
 	}
+	c.logger.Infof("GetLeadingDetachedComments %s", sl.GetLeadingDetachedComments())
 
 	// Leading comments next:
 	// if s := strings.TrimSpace(sl.GetLeadingComments()); s != "" {
 	// 	comments = append(comments, s)
 	// }
 	comments = append(comments, sl.GetLeadingComments())
+	c.logger.Infof("GetLeadingComments %s", sl.GetLeadingComments())
+
 	// Trailing comments last:
 	// if s := strings.TrimSpace(sl.GetTrailingComments()); s != "" {
 	// 	comments = append(comments, s)
 	// }
 	comments = append(comments, sl.GetTrailingComments())
+	c.logger.Infof("GetTrailingComments %s", sl.GetTrailingComments())
 
 	// The description is all the comments joined together:
 	description = strings.Join(comments, c.commentDelimiter)
